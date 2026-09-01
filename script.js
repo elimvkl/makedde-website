@@ -22,3 +22,12 @@ const openContactModal = () => {
 if (openContactForm) openContactForm.addEventListener('click', openContactModal);
 document.querySelectorAll('[data-close-modal]').forEach(el => el.addEventListener('click', closeContactModal));
 document.addEventListener('keydown', event => { if (event.key === 'Escape') closeContactModal(); });
+
+const contactForm = document.querySelector('#contactForm');
+if (contactForm) {
+  contactForm.addEventListener('submit', () => {
+    const name = document.querySelector('#contactName')?.value.trim();
+    const subject = document.querySelector('#contactSubject');
+    if (subject) subject.value = name ? `New MAKEDDE website message from ${name}` : 'New MAKEDDE website message';
+  });
+}
